@@ -1,0 +1,12 @@
+name: CI for bazel-utils
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Build all targets 
+        run: bazel build //...
+      - name: Test all targets
+        run: bazel test //...

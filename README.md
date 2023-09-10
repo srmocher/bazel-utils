@@ -6,7 +6,7 @@ This repository contains some utility Bazel rules for various usecases. Currentl
 
 This repository doesn't support bzlmod yet. In the meantime, you can pull it in your repository using the `WORKSPACE` file
 
-```
+```python
 http_archive(
     name = "smocherla_bazel_utils",
     url = "https://github.com/smocherla-brex/bazel-utils/archive/refs/tags/v0.0.1-alpha.zip"
@@ -23,4 +23,4 @@ github_rule_deps()
 
 ## Rules
 
-- [github_private_release_asset](https://github.com/smocherla-brex/bazel-utils/blob/v0.0.1-alpha/rules/repo_utils/github_doc.md#github_private_release_asset) - Repository rule to download private Github assets and expose build targets for archives/jars/plain files. Authentication is supported by providing a Github token as either an environment variable through `GH_TOKEN` or an entry in the `.netrc` file at `~/.netrc`.
+- [github_private_release_asset](https://github.com/smocherla-brex/bazel-utils/blob/v0.0.1-alpha/rules/repo_utils/github.md#github_private_release_asset) - Repository rule to download private Github assets and expose build targets for archives/jars/plain files. Authentication is supported by providing a Github token as either an environment variable through `GH_TOKEN` or an entry in the `.netrc` file at `~/.netrc`.
