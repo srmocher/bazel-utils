@@ -1,36 +1,5 @@
 load("@bazel_tools//tools/build_defs/repo:utils.bzl", "read_netrc")
-
-_JAR_BUILD_FILE_CONTENT = """
-
-java_import(
-    name = "jar",
-    jars = [
-        "{downloaded_jar_path}"
-    ],
-    visibility = ["//visibility:public"],
-)
-"""
-
-_ARCHIVE_BUILD_FILE_CONTENT = """
-
-filegroup(
-    name = "srcs",
-    srcs = glob([
-        "**/*",
-    ]),
-    visibility = ["//visibility:public"],
-)
-"""
-
-_FILE_BUILD_FILE_CONTENT = """
-package(default_visibility = ["//visibility:public"])
-
-filegroup(
-    name = "file",
-    srcs = ["{downloaded_file}"],
-)
-
-"""
+load(":common.bzl", "setup_build_file")
 
 def _get_token_from_netrc_file(repo_ctx, github_host):
     home = repo_ctx.os.environ.get("HOME")
@@ -127,7 +96,7 @@ def _download_from_github(ctx, gh_cli):
             content = ctx.attr.build_file_content,
         )
     else:
-        _setup_build_files(ctx)
+        setup_build_file(ctx)
 
 def _validate_sha256(ctx):
     if ctx.which("sha256sum"):
@@ -141,24 +110,6 @@ def _validate_sha256(ctx):
             fail("Downloaded asset has checksum {}, which is different from expected value: {}".format(actual_sha, ctx.attr.sha256))
     else:
         print("sha256sum command doesn't exist in PATH, so skipping integrity checks..")
-
-def _setup_build_files(ctx):
-    # default targets
-    if ctx.attr.asset_type == "archive":
-        ctx.file(
-            "BUILD.bazel",
-            content = _ARCHIVE_BUILD_FILE_CONTENT,
-        )
-    elif ctx.attr.asset_type == "jar":
-        ctx.file(
-            "BUILD.bazel",
-            content = _JAR_BUILD_FILE_CONTENT.format(downloaded_jar_path = ctx.attr.asset_name),
-        )
-    elif ctx.attr.asset_type == "file":
-        ctx.file(
-            "BUILD.bazel",
-            content = _FILE_BUILD_FILE_CONTENT.format(downloaded_file = ctx.attr.asset_name),
-        )
 
 def _github_private_release_asset_impl(ctx):
     if ctx.attr.asset_type not in ["file", "archive", "jar"]:
@@ -239,4 +190,7 @@ github_private_release_asset(
             cfg = "exec",
         ),
     },
+    environ = [
+        "GH_TOKEN",
+    ],
 )

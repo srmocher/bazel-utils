@@ -9,11 +9,31 @@ bzl_library(
     ],
 )
 
+bzl_library(
+    name = "common_bzl",
+    srcs = [
+        "common.bzl",
+    ],
+)
+
 stardoc(
     name = "github-docs",
     out = "github_doc.md",
     input = "github.bzl",
-    deps = [":bazel_tools_srcs"],
+    deps = [
+        ":bazel_tools_srcs",
+        ":common_bzl",
+    ],
+)
+
+stardoc(
+    name = "s3-docs",
+    out = "s3_doc.md",
+    input = "s3.bzl",
+    deps = [
+        ":bazel_tools_srcs",
+        ":common_bzl",
+    ],
 )
 
 diff_test(
