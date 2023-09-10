@@ -1,5 +1,6 @@
 load("@io_bazel_stardoc//stardoc:stardoc.bzl", "stardoc")
 load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
+load("@bazel_skylib//rules:diff_test.bzl", "diff_test")
 
 bzl_library(
     name = "bazel_tools_srcs",
@@ -13,4 +14,16 @@ stardoc(
     out = "github_doc.md",
     input = "github.bzl",
     deps = [":bazel_tools_srcs"],
+)
+
+diff_test(
+    name = "github_docs_diff",
+    failure_message = """
+Docs are outdated! Please run
+
+bazel build //rules/repo_utils:github-docs
+cp $(bazel cquery --output=files //rules/repo_utils:github-docs) rules/repo_utils/github.md and commit the changes.
+    """,
+    file1 = ":github-docs",
+    file2 = ":github.md",
 )
