@@ -14,10 +14,10 @@ def github_rule_deps():
 
     http_archive(
         name = "gh_cli_linux_amd64",
-        url = "https://github.com/cli/cli/releases/download/v2.34.0/gh_2.34.0_linux_amd64.tar.gz",
-        sha256 = "056c45c510ca77ec7e492023e1aa79c078b679932b6202188b7f5abd914df911",
+        url = "https://github.com/cli/cli/releases/download/v2.36.0/gh_2.36.0_linux_amd64.tar.gz",
+        sha256 = "29ed6c04931e6ac8a5f5f383411d7828902fed22f08b0daf9c8ddb97a89d97ce",
         build_file_content = _GH_BUILD_FILE_CONTENT,
-        strip_prefix = "gh_2.34.0_linux_amd64",
+        strip_prefix = "gh_2.36.0_linux_amd64",
     )
 
     http_archive(
