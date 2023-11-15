@@ -56,8 +56,8 @@ def bazel_utils_deps():
 
     http_file(
         name = "buildifier_linux_arm64",
-        url = "https://github.com/bazelbuild/buildtools/releases/download/v6.3.3/buildifier-linux-arm64",
-        sha256 = "6a03a1cf525045cb686fc67cd5d64cface5092ebefca3c4c93fb6e97c64e07db",
+        url = "https://github.com/bazelbuild/buildtools/releases/download/v6.4.0/buildifier-linux-arm64",
+        sha256 = "18540fc10f86190f87485eb86963e603e41fa022f88a2d1b0cf52ff252b5e1dd",
         executable = True,
     )
 
