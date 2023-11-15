@@ -63,8 +63,8 @@ def bazel_utils_deps():
 
     http_file(
         name = "buildifier_darwin_amd64",
-        url = "https://github.com/bazelbuild/buildtools/releases/download/v6.3.3/buildifier-darwin-amd64",
-        sha256 = "3c36a3217bd793815a907a8e5bf81c291e2d35d73c6073914640a5f42e65f73f",
+        url = "https://github.com/bazelbuild/buildtools/releases/download/v6.4.0/buildifier-darwin-amd64",
+        sha256 = "eeb47b2de27f60efe549348b183fac24eae80f1479e8b06cac0799c486df5bed",
         executable = True,
     )
 
