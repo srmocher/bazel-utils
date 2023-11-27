@@ -22,10 +22,10 @@ def github_rule_deps():
 
     http_archive(
         name = "gh_cli_linux_arm64",
-        url = "https://github.com/cli/cli/releases/download/v2.36.0/gh_2.36.0_linux_arm64.tar.gz",
-        sha256 = "3cdbbe813c59fc61c84dc17e78efb93135231beb08e8cb0f2345de8d615a1660",
+        url = "https://github.com/cli/cli/releases/download/v2.39.2/gh_2.39.2_linux_arm64.tar.gz",
+        sha256 = "ea29ede50a8fdd82297bb1db528f0e7b5f0893e165222c3d85baeee3e98019f2",
         build_file_content = _GH_BUILD_FILE_CONTENT,
-        strip_prefix = "gh_2.36.0_linux_arm64",
+        strip_prefix = "gh_2.39.2_linux_arm64",
     )
 
     http_archive(
