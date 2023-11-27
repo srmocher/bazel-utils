@@ -30,10 +30,10 @@ def github_rule_deps():
 
     http_archive(
         name = "gh_cli_darwin_amd64",
-        url = "https://github.com/cli/cli/releases/download/v2.34.0/gh_2.34.0_macOS_amd64.zip",
-        sha256 = "9d6cd7c3952bb9a1cdaeaf04c456c558f8510ffbdc93bb4b40a85013c638bfca",
+        url = "https://github.com/cli/cli/releases/download/v2.39.2/gh_2.39.2_macOS_amd64.zip",
+        sha256 = "8db25741e962ac6e8f8b43c65b3b3bf8f7cba0fe706ae5b60498cceaed751f4a",
         build_file_content = _GH_BUILD_FILE_CONTENT,
-        strip_prefix = "gh_2.34.0_macOS_amd64",
+        strip_prefix = "gh_2.39.2_macOS_amd64",
     )
 
     http_archive(
