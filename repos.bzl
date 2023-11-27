@@ -38,10 +38,10 @@ def github_rule_deps():
 
     http_archive(
         name = "gh_cli_darwin_arm64",
-        url = "https://github.com/cli/cli/releases/download/v2.36.0/gh_2.36.0_macOS_arm64.zip",
-        sha256 = "d4e53e8b2127f2ad3f5356e81ef27b50f1cc2e202ea18db4f69b4e9f77fd895f",
+        url = "https://github.com/cli/cli/releases/download/v2.39.2/gh_2.39.2_macOS_arm64.zip",
+        sha256 = "f466649e60d38446b9700d2fb345280aa1d4c086e2918c2abc797b2742e813ca",
         build_file_content = _GH_BUILD_FILE_CONTENT,
-        strip_prefix = "gh_2.36.0_macOS_arm64",
+        strip_prefix = "gh_2.39.2_macOS_arm64",
     )
 
 def bazel_utils_deps():
