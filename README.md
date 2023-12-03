@@ -8,13 +8,13 @@ This repository doesn't support bzlmod yet. In the meantime, you can pull it in 
 
 ```python
 http_archive(
-    name = "smocherla_bazel_utils",
-    url = "https://github.com/smocherla-brex/bazel-utils/archive/refs/tags/v0.0.1-alpha.zip"
+    name = "srmocher_bazel_utils",
+    url = "https://github.com/srmocher/bazel-utils/archive/refs/tags/v0.0.1-alpha.zip"
     strip_prefix = "bazel-utils-0.0.1-alpha",
     sha256 = "6911e9730f3da095c03f41f1b45728eb9edb7f727d732683f78631a2acf6883c",
 )
 
-load("@smocherla_bazel_utils//:repos.bzl", "bazel_utils_deps", "github_rule_deps")
+load("@srmocher_bazel_utils//:repos.bzl", "bazel_utils_deps", "github_rule_deps")
 
 bazel_utils_deps()
 
